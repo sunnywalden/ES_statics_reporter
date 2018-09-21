@@ -8,10 +8,9 @@ class click:
     def __init__(self):
         self.timestamp = time.localtime(time.time() - 60 * 60)
         self.click_path = '/data/page_source/click/' + time.strftime('%Y/%m/%d/%H.txt', self.timestamp)
-        self.ES_HOSTS = ['http://10.150.30.94:9202', 'http://10.150.30.92:9202', 'http://10.150.30.91:9202',
-                         'http://10.150.30.93:9202', 'http://10.150.30.88:9202', 'http://10.150.30.87:9202']
+        self.ES_HOSTS = ['http://host1:port', 'http://host2:port']
         self.es_conn = Elasticsearch(self.ES_HOSTS)
-        self.index = 'profile-' + time.strftime('%Y%m%d', time.localtime(time.time()))
+        self.index = 'test_index-' + time.strftime('%Y%m%d', time.localtime(time.time()))
         self.type = 'logs'
         self.mapping_body = {
             "settings": {
